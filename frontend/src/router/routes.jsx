@@ -19,6 +19,8 @@ const PaymentRead = lazy(() => import('@/pages/Payment/PaymentRead'));
 const PaymentUpdate = lazy(() => import('@/pages/Payment/PaymentUpdate'));
 
 const Settings = lazy(() => import('@/pages/Settings/Settings'));
+const PaymentMode = lazy(() => import('@/pages/PaymentMode'));
+const Taxes = lazy(() => import('@/pages/Taxes'));
 
 
 const Profile = lazy(() => import('@/pages/Profile'));
@@ -68,22 +70,6 @@ let routes = {
     {
       path: '/invoice/pay/:id',
       element: <InvoiceRecordPayment />,
-    },
-    {
-      path: '/quote',
-      element: <Quote />,
-    },
-    {
-      path: '/quote/create',
-      element: <QuoteCreate />,
-    },
-    {
-      path: '/quote/read/:id',
-      element: <QuoteRead />,
-    },
-    {
-      path: '/quote/update/:id',
-      element: <QuoteUpdate />,
     },
     {
       path: '/payment',
