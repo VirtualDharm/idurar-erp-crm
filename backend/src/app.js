@@ -55,6 +55,9 @@ app.get(['/health', '/api/health'], (req, res) => {
 
 // Here our API Routes
 
+// Public, unauthenticated: the website calculator widget posts here.
+app.use('/api/public', require('./routes/publicRoutes/widgetApi'));
+
 app.use('/api', coreAuthRouter);
 app.use('/api', adminAuth.isValidAuthToken, coreApiRouter);
 app.use('/api', adminAuth.isValidAuthToken, erpApiRouter);

@@ -7,6 +7,7 @@ const router = express.Router();
 const adminController = require('@/controllers/coreControllers/adminController');
 const settingController = require('@/controllers/coreControllers/settingController');
 const teamController = require('@/controllers/coreControllers/teamController');
+const solarDashboardController = require('@/controllers/coreControllers/solarDashboardController');
 
 const hasRole = require('@/middlewares/hasRole');
 
@@ -17,6 +18,10 @@ const { singleStorageUpload } = require('@/middlewares/uploadMiddleware');
 router.route('/admin/read/:id').get(catchErrors(adminController.read));
 
 router.route('/admin/password-update/:id').patch(catchErrors(adminController.updatePassword));
+
+//_______________________________ Dashboard _______________________________
+
+router.route('/dashboard/summary').get(catchErrors(solarDashboardController.summary));
 
 //_______________________________ Team management _______________________________
 // Owner/admin only: everything here changes who can sign in and what they can do.

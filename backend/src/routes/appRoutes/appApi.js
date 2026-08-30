@@ -20,8 +20,21 @@ const routerApp = (entity, controller) => {
     router.route(`/${entity}/mail`).post(catchErrors(controller['mail']));
   }
 
-  if (entity === 'quote') {
+  if (entity === 'quote' || entity === 'quotation') {
     router.route(`/${entity}/convert/:id`).get(catchErrors(controller['convert']));
+  }
+
+  // Solar-specific sub-resources. Kept here (rather than as separate routers)
+  // so every app entity keeps one predictable URL shape.
+  if (entity === 'project') {
+    router.route(`/${entity}/milestone/:id`).patch(catchErrors(controller['updateMilestone']));
+    router.route(`/${entity}/payment/:id`).patch(catchErrors(controller['recordPayment']));
+    router.route(`/${entity}/document/:id`).patch(catchErrors(controller['setDocument']));
+  }
+
+  if (entity === 'lead') {
+    router.route(`/${entity}/note/:id`).patch(catchErrors(controller['addNote']));
+    router.route(`/${entity}/status/:id`).patch(catchErrors(controller['updateStatus']));
   }
 };
 
