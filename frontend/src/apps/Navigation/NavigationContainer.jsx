@@ -13,6 +13,14 @@ import useResponsive from '@/hooks/useResponsive';
 import {
   SettingOutlined,
   TeamOutlined,
+  FunnelPlotOutlined,
+  EnvironmentOutlined,
+  FileTextOutlined,
+  ToolOutlined,
+  BankOutlined,
+  AppstoreOutlined,
+  PercentageOutlined,
+  ProfileOutlined,
   CustomerServiceOutlined,
   ContainerOutlined,
   FileSyncOutlined,
@@ -56,6 +64,36 @@ function Sidebar({ collapsible, isMobile = false }) {
       label: <Link to={'/'}>{translate('dashboard')}</Link>,
     },
     {
+      key: 'lead',
+      icon: <FunnelPlotOutlined />,
+      label: <Link to={'/lead'}>{translate('Leads')}</Link>,
+    },
+    {
+      key: 'survey',
+      icon: <EnvironmentOutlined />,
+      label: <Link to={'/survey'}>{translate('Surveys')}</Link>,
+    },
+    {
+      key: 'quotation',
+      icon: <FileTextOutlined />,
+      label: <Link to={'/quotation'}>{translate('Quotations')}</Link>,
+    },
+    {
+      key: 'project',
+      icon: <ToolOutlined />,
+      label: <Link to={'/project'}>{translate('Projects')}</Link>,
+    },
+    {
+      key: 'subsidy',
+      icon: <BankOutlined />,
+      label: <Link to={'/subsidy'}>{translate('Subsidy Tracker')}</Link>,
+    },
+    {
+      key: 'afterSales',
+      icon: <CustomerServiceOutlined />,
+      label: <Link to={'/after-sales'}>{translate('After-Sales')}</Link>,
+    },
+    {
       key: 'customer',
       icon: <CustomerServiceOutlined />,
       label: <Link to={'/customer'}>{translate('customers')}</Link>,
@@ -76,6 +114,21 @@ function Sidebar({ collapsible, isMobile = false }) {
       key: 'paymentMode',
       label: <Link to={'/payment/mode'}>{translate('payments_mode')}</Link>,
       icon: <WalletOutlined />,
+    },
+    {
+      key: 'product',
+      label: <Link to={'/product'}>{translate('Product Catalog')}</Link>,
+      icon: <AppstoreOutlined />,
+    },
+    {
+      key: 'subsidyRules',
+      label: <Link to={'/subsidy-rules'}>{translate('Subsidy Rules')}</Link>,
+      icon: <PercentageOutlined />,
+    },
+    {
+      key: 'paymentTemplates',
+      label: <Link to={'/payment-templates'}>{translate('Payment Templates')}</Link>,
+      icon: <ProfileOutlined />,
     },
     {
       key: 'taxes',

@@ -23,6 +23,22 @@ const PaymentMode = lazy(() => import('@/pages/PaymentMode'));
 const Taxes = lazy(() => import('@/pages/Taxes'));
 const Team = lazy(() => import('@/pages/Team'));
 
+// --- solar modules ---
+const Dashboard = lazy(() => import('@/pages/Dashboard'));
+const Lead = lazy(() => import('@/pages/Lead'));
+const LeadRead = lazy(() => import('@/pages/Lead/LeadRead'));
+const SurveyList = lazy(() => import('@/pages/Survey'));
+const SurveyRead = lazy(() => import('@/pages/Survey/SurveyRead'));
+const QuotationList = lazy(() => import('@/pages/Quotation'));
+const QuotationForm = lazy(() => import('@/pages/Quotation/QuotationForm'));
+const ProjectList = lazy(() => import('@/pages/Project'));
+const ProjectRead = lazy(() => import('@/pages/Project/ProjectRead'));
+const SubsidyTracker = lazy(() => import('@/pages/SubsidyTracker'));
+const AfterSales = lazy(() => import('@/pages/AfterSales'));
+const Product = lazy(() => import('@/pages/Product'));
+const SubsidyRule = lazy(() => import('@/pages/SubsidyRule'));
+const PaymentTemplate = lazy(() => import('@/pages/PaymentTemplate'));
+
 
 const Profile = lazy(() => import('@/pages/Profile'));
 
@@ -45,8 +61,22 @@ let routes = {
     },
     {
       path: '/',
-      element: <Invoice />,
+      element: <Dashboard />,
     },
+    { path: '/lead', element: <Lead /> },
+    { path: '/lead/read/:id', element: <LeadRead /> },
+    { path: '/survey', element: <SurveyList /> },
+    { path: '/survey/read/:id', element: <SurveyRead /> },
+    { path: '/quotation', element: <QuotationList /> },
+    { path: '/quotation/create', element: <QuotationForm /> },
+    { path: '/quotation/update/:id', element: <QuotationForm /> },
+    { path: '/project', element: <ProjectList /> },
+    { path: '/project/read/:id', element: <ProjectRead /> },
+    { path: '/subsidy', element: <SubsidyTracker /> },
+    { path: '/after-sales', element: <AfterSales /> },
+    { path: '/product', element: <Product /> },
+    { path: '/subsidy-rules', element: <SubsidyRule /> },
+    { path: '/payment-templates', element: <PaymentTemplate /> },
     {
       path: '/customer',
       element: <Customer />,
