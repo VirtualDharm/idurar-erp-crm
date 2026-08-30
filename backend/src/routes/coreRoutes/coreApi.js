@@ -6,6 +6,9 @@ const router = express.Router();
 
 const adminController = require('@/controllers/coreControllers/adminController');
 const settingController = require('@/controllers/coreControllers/settingController');
+const teamController = require('@/controllers/coreControllers/teamController');
+
+const hasRole = require('@/middlewares/hasRole');
 
 const { singleStorageUpload } = require('@/middlewares/uploadMiddleware');
 
@@ -14,6 +17,20 @@ const { singleStorageUpload } = require('@/middlewares/uploadMiddleware');
 router.route('/admin/read/:id').get(catchErrors(adminController.read));
 
 router.route('/admin/password-update/:id').patch(catchErrors(adminController.updatePassword));
+
+//_______________________________ Team management _______________________________
+// Owner/admin only: everything here changes who can sign in and what they can do.
+
+router.route('/team/roles').get(hasRole('owner', 'admin'), catchErrors(teamController.roles));
+router.route('/team/list').get(hasRole('owner', 'admin'), catchErrors(teamController.list));
+router.route('/team/create').post(hasRole('owner', 'admin'), catchErrors(teamController.create));
+router
+  .route('/team/role/:id')
+  .patch(hasRole('owner', 'admin'), catchErrors(teamController.updateRole));
+router
+  .route('/team/enabled/:id')
+  .patch(hasRole('owner', 'admin'), catchErrors(teamController.setEnabled));
+router.route('/team/delete/:id').delete(hasRole('owner', 'admin'), catchErrors(teamController.remove));
 
 //_______________________________ Admin Profile _______________________________
 

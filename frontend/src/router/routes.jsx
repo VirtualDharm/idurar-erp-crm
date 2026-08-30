@@ -21,6 +21,7 @@ const PaymentUpdate = lazy(() => import('@/pages/Payment/PaymentUpdate'));
 const Settings = lazy(() => import('@/pages/Settings/Settings'));
 const PaymentMode = lazy(() => import('@/pages/PaymentMode'));
 const Taxes = lazy(() => import('@/pages/Taxes'));
+const Team = lazy(() => import('@/pages/Team'));
 
 
 const Profile = lazy(() => import('@/pages/Profile'));
@@ -87,6 +88,10 @@ let routes = {
     {
       path: '/settings',
       element: <Settings />,
+    },
+    {
+      path: '/team',
+      element: <Team />,
     },
     {
       path: '/settings/edit/:settingsKey',

@@ -12,6 +12,7 @@ import useResponsive from '@/hooks/useResponsive';
 
 import {
   SettingOutlined,
+  TeamOutlined,
   CustomerServiceOutlined,
   ContainerOutlined,
   FileSyncOutlined,
@@ -80,6 +81,11 @@ function Sidebar({ collapsible, isMobile = false }) {
       key: 'taxes',
       label: <Link to={'/taxes'}>{translate('taxes')}</Link>,
       icon: <ShopOutlined />,
+    },
+    {
+      key: 'team',
+      label: <Link to={'/team'}>{translate('team')}</Link>,
+      icon: <TeamOutlined />,
     },
     {
       key: 'generalSettings',

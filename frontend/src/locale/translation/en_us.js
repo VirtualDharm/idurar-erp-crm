@@ -219,6 +219,7 @@ const lang = {
   product_category: 'Product Category',
   expense: 'Expense',
   expenses_category: 'Expenses Category',
+  team: 'Team',
   settings: 'Settings',
   admin: 'Admin',
   currency: 'Currency',

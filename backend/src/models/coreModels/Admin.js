@@ -27,11 +27,16 @@ const adminSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  // Roles mirror the four job functions a solar business actually has. `owner`
+  // is the account holder (created by setup.js) and is never removable; the rest
+  // are assigned per team member. Route access is enforced by hasRole().
   role: {
     type: String,
-    default: 'owner',
-    enum: ['owner'],
+    default: 'sales',
+    enum: ['owner', 'admin', 'sales', 'technician', 'accounts'],
   },
 });
+
+adminSchema.index({ email: 1 });
 
 module.exports = mongoose.model('Admin', adminSchema);
