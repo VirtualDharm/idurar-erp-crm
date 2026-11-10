@@ -9,7 +9,7 @@ export default function Customer() {
   const entity = 'client';
   const searchConfig = {
     displayLabels: ['name'],
-    searchFields: 'name',
+    searchFields: 'name,phone,stage',
   };
   const deleteModalLabels = ['name'];
 
